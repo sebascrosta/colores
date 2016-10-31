@@ -1,19 +1,65 @@
-#numeros{
+html{
+    height: 100%;
+}
+
+body{
+  min-height: 100%;
+  background-color: rgb(255,255,255);
+}
+
+.cont {
+    min-height: 100%;
+}
+.logoRow {
+    min-height: 100%;
+}
+
+.input-num{
   background: rgba(0,0,0,0);
+  height: 100px;
+  font-size: 100px;
+  color: black;
+  border: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
 }
 
-.vertical{
-  vertical-align: middle;
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:black;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:black;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:black;
+  opacity:  1;
+}
+::ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+  }
+
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-.full{
-  height: 100%;
+
+.logoCont {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100px;
+    width: 50%;
 }
 
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
+.logoCont2 {
+    position: absolute;
+    top: 70%; left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100px;
+    width: 50%;
 }
