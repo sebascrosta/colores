@@ -104,10 +104,11 @@ function validarRGB(){
     this.value = 0;
   }
 
-  cambioValor();
+  key = event.keyCode || event.charCode;
+  cambioValor(key);
 }
 
-function cambioValor(){
+function cambioValor(key){
   var valueR = document.getElementById('red').value;
   var valueG = document.getElementById('green').value;
   var valueB = document.getElementById('blue').value;
@@ -117,6 +118,7 @@ function cambioValor(){
   document.body.style.background = hexa;
 
   focusNext();
+  focusPrevious(key);
 }
 
 function toHex(d) {
@@ -133,5 +135,16 @@ function focusNext(){
   } else if (valueG === document.activeElement && valueG.value.length == 3) {
     valueB.focus();
   }
+}
 
+function focusPrevious(key){
+  var valueR = document.getElementById('red');
+  var valueG = document.getElementById('green');
+  var valueB = document.getElementById('blue');
+
+  if(valueB === document.activeElement && valueB.value.length === 0 && key == 8){
+    valueG.focus();
+  } else if (valueG === document.activeElement && valueG.value.length === 0 && key == 8) {
+    valueR.focus();
+  }
 }
