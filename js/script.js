@@ -141,10 +141,19 @@ function focusPrevious(key){
   var valueR = document.getElementById('red');
   var valueG = document.getElementById('green');
   var valueB = document.getElementById('blue');
+  var empty = false;
 
-  if(valueB === document.activeElement && valueB.value.length === 0 && key == 8){
+  if(valueB === document.activeElement && valueB.value.length === 0 && key == 8 && !empty){
+    empty = true;
+  } else if (valueG === document.activeElement && valueG.value.length === 0 && key == 8 && !empty) {
+    empty = true;
+  }
+
+  if(valueB === document.activeElement && valueB.value.length === 0 && key == 8 && empty){
     valueG.focus();
-  } else if (valueG === document.activeElement && valueG.value.length === 0 && key == 8) {
+    empty = false;
+  } else if (valueG === document.activeElement && valueG.value.length === 0 && key == 8 && empty) {
     valueR.focus();
+    empty = false;
   }
 }
